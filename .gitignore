@@ -1,0 +1,17 @@
+# .gitignore
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Node
+node_modules/
+build/
+dist/
+
+# VSCode
+.vscode/
