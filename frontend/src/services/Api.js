@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// Axios base instance
+// Use environment variable to support both local & deployed backend
 const API = axios.create({
-  baseURL: "http://localhost:8000/api/v1", // Make sure this matches FastAPI
+  baseURL: process.env.REACT_APP_API_URL || "http://localhost:8000/api/v1",
 });
 
 // Get all drivers
@@ -11,6 +11,8 @@ export const getDrivers = () => API.get("/drivers");
 // Add a driver
 export const addDriver = (driverData) => API.post("/drivers", driverData);
 
-// ✅ Fixed: use API instance instead of axios and remove undefined API_URL
+// Delete a driver
 export const deleteDriver = (id) => API.delete(`/drivers/${id}`);
+
+// Update a driver
 export const updateDriver = (id, data) => API.put(`/drivers/${id}`, data);
